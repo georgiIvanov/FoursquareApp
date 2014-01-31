@@ -10,12 +10,12 @@
 
 @protocol VenuesSerializerDelegate <NSObject>
 
--(void) recieveSerializedVenues:(NSArray*) venues Categories:(NSDictionary*)categories;
+-(void) recieveSerializedVenues:(NSDictionary*) venues Categories:(NSArray*)categories;
 
 @end
 
 @interface VenuesSerializer : NSObject
 
--(VenuesSerializer*)initWithData:(NSDictionary*)venues;
+-(VenuesSerializer*)loadData:(NSDictionary*)venues;
 -(void)serializeVenuesAsync:(id<VenuesSerializerDelegate>) delegate;
 @end

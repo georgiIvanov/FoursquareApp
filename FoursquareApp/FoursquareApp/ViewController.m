@@ -11,9 +11,10 @@
 #import "Utilities.h"
 #import "MapViewController.h"
 #import "VenuesSerializer.h"
+#import "Venue.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface ViewController () <HttpRequestDelegate, VenuesSerializerDelegate, CLLocationManagerDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, HttpRequestDelegate, VenuesSerializerDelegate, CLLocationManagerDelegate>
 
 @end
 
@@ -23,6 +24,9 @@
     CLLocationManager* _locationManager;
     CLLocationCoordinate2D _locationCoordinates;
     VenuesSerializer* _venuesSerializer;
+    
+    NSArray* _categories;
+    NSDictionary* _venues;
 }
 
 - (void)viewDidLoad
@@ -31,7 +35,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self checkIfLogged];
     [self initLocationManager];
-    
+    _venuesSerializer = [VenuesSerializer alloc];
+    self.venueTable.delegate = self;
+    self.venueTable.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,7 +62,7 @@
         
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
-    _locationManager.distanceFilter = 10.0f;//kCLDistanceFilterNone; //
+    _locationManager.distanceFilter = 30.0f;//kCLDistanceFilterNone; //
     _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [_locationManager startUpdatingLocation];
 
@@ -102,18 +108,69 @@
     [RequestManager createRequest:url httpMethod:@"GET" delegate:self];
 }
 
--(void)recieveSerializedVenues:(NSArray *)venues Categories:(NSDictionary *)categories
+-(void)recieveSerializedVenues:(NSDictionary *)venues Categories:(NSArray *)categories
 {
+    _venues = venues;
+    _categories = categories;
+    
+    [self.venueTable reloadData];
     
 }
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [_categories count];
+}
+
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return _categories[section];
+}
+
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSString* categoryKey = [_categories objectAtIndex:section];
+    if([_venues objectForKey:categoryKey])
+    {
+        NSArray* arr = [_venues valueForKey: categoryKey];
+        return [arr count];
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    // Dequeue or create a cell of the appropriate type.
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    
+    // Configure the cell.
+    NSString* key = [_categories objectAtIndex:indexPath.section];
+    NSArray* rowsInSection = [_venues valueForKey:key];
+    Venue* venueEntry =[rowsInSection objectAtIndex:indexPath.item];
+    
+    UILabel* venueName = (UILabel*)[cell viewWithTag:1];
+    UILabel* venueDistance = (UILabel*)[cell viewWithTag:2];
+    UILabel* venueAddress = (UILabel*)[cell viewWithTag:3];
+    
+    venueName.text = venueEntry.Name;
+    float distance = venueEntry.Distance;
+    venueDistance.text = [[NSString alloc] initWithFormat:@"Dist: %.0f m", distance];
+    venueAddress.text = venueEntry.Address;
+    return cell;
+}
 
 -(void)handleSuccess:(NSDictionary *)responseData
 {
     if([responseData objectForKey:@"response"])
     {
-        _venuesSerializer = [[VenuesSerializer alloc]
-                             initWithData:[[responseData objectForKey:@"response"]
+        _venuesSerializer = [_venuesSerializer
+                             loadData:[[responseData objectForKey:@"response"]
                                            objectForKey:@"venues"] ];
         
         [_venuesSerializer serializeVenuesAsync:self];

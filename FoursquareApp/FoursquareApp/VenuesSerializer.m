@@ -13,10 +13,10 @@
 {
     NSDictionary* _venuesToSerialize;
     NSArray* _serializedVenues;
-    NSMutableDictionary* _categories;
+    NSMutableArray* _categories;
 }
 
--(VenuesSerializer*) initWithData:(NSDictionary *)venues
+-(VenuesSerializer*) loadData:(NSDictionary *)venues
 {
     _venuesToSerialize = venues;
     return self;
@@ -34,9 +34,9 @@
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), 	^{
            
             
-            NSArray* result = [[NSArray alloc] initWithArray:
+            NSDictionary* result = [[NSDictionary alloc] initWithDictionary:
                                [self serializeDictionaryToArrayVenues]];
-            NSDictionary* categories = [[NSDictionary alloc] initWithDictionary:_categories];
+            NSArray* categories = [[NSArray alloc] initWithArray:_categories];
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [delegate recieveSerializedVenues:result Categories:categories];
@@ -45,11 +45,11 @@
     }
 }
 
--(NSMutableArray*) serializeDictionaryToArrayVenues
+-(NSMutableDictionary*) serializeDictionaryToArrayVenues
 {
     NSUInteger count = [_venuesToSerialize count];
-    NSMutableArray* result = [[NSMutableArray alloc] initWithCapacity: count];
-    _categories = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* result = [[NSMutableDictionary alloc] initWithCapacity: count];
+    _categories = [[NSMutableArray alloc] init];
     
     NSString* name;
     NSString* address;
@@ -83,9 +83,23 @@
                              HereNow:hereNow
                              Id:fsId
                              Url:url];
-        [result addObject:venueEntry];
-        [_categories setObject:category forKey:category];
+        
+        if([result objectForKey:category])
+        {
+            NSMutableArray* venuesInCategory = [result objectForKey:category];
+            [venuesInCategory addObject:venueEntry];
+            
+        }
+        else
+        {
+            NSMutableArray* venuesInCategory = [[NSMutableArray alloc] init];
+            [venuesInCategory addObject:venueEntry];
+            [result setObject:venuesInCategory forKey:category];
+            [_categories addObject:category];
+        }
     }
+    
+    
     
     return result;
 }
