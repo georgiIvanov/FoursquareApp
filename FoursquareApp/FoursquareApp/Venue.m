@@ -10,6 +10,10 @@
 
 @implementation Venue
 
+//@synthesize coordinate;
+//@synthesize title;
+//@synthesize subtitle;
+
 -(Venue*) initWithName:(NSString*)name
                Address:(NSString*)address
               Category:(NSString*)category
@@ -32,5 +36,21 @@
     return self;
 }
 
+- (CLLocationCoordinate2D) coordinate {
+    CLLocationCoordinate2D coords;
+    coords.latitude = self.Latitude;
+    coords.longitude =  self.Longitude;
+    
+    return coords;
+}
+
+- (NSString *) title {
+    return self.Name;
+}
+
+- (NSString *) subtitle {
+    NSString* sub = [[NSString alloc] initWithFormat:@"%.0f m, Here: %d",self.Distance, self.HereNow];
+    return sub;
+}
 
 @end

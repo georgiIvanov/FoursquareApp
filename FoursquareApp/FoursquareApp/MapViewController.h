@@ -12,6 +12,7 @@
 @interface MapViewController : UIViewController
 
 @property (nonatomic) CLLocationCoordinate2D locationCoordinates;
+@property (nonatomic) NSDictionary* venues;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end

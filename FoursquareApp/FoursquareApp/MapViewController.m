@@ -7,8 +7,10 @@
 //
 
 #import "MapViewController.h"
+#import "Venue.h"
+#import <MapKit/MapKit.h>
 
-@interface MapViewController ()
+@interface MapViewController () <MKMapViewDelegate>
 
 @end
 
@@ -27,7 +29,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.mapView.delegate  = self;
     [self centerMapOnUserLocation];
+    [self addVenuesToMap];
 }
 
 -(void)centerMapOnUserLocation
@@ -36,6 +40,16 @@
     MKCoordinateSpan span = MKCoordinateSpanMake(0, 0);
     MKCoordinateRegion viewRegion = MKCoordinateRegionMake(_locationCoordinates, span);
     [_mapView setRegion:viewRegion animated:YES];
+}
+
+-(void) addVenuesToMap
+{
+    for (id categoryKey in self.venues) {
+        NSArray* arr = [self.venues objectForKey:categoryKey];
+        
+        [self.mapView addAnnotations:arr];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning

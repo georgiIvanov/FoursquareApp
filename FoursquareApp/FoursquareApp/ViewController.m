@@ -33,11 +33,17 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    [self checkIfLogged];
-    [self initLocationManager];
+//    [self checkIfLogged];
+//    [self initLocationManager];
     _venuesSerializer = [VenuesSerializer alloc];
     self.venueTable.delegate = self;
     self.venueTable.dataSource = self;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self checkIfLogged];
+    [self initLocationManager];
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,6 +105,7 @@
     {
         MapViewController* mapController = (MapViewController*)segue.destinationViewController;
         mapController.locationCoordinates = _locationCoordinates;
+        mapController.venues = _venues;
     }
 }
 
@@ -162,6 +169,7 @@
     float distance = venueEntry.Distance;
     venueDistance.text = [[NSString alloc] initWithFormat:@"Dist: %.0f m", distance];
     venueAddress.text = venueEntry.Address;
+    
     return cell;
 }
 
@@ -175,11 +183,6 @@
         
         [_venuesSerializer serializeVenuesAsync:self];
         
-//        NSArray* str = [[responseData objectForKey:@"response"] objectForKey:@"venues"];
-//        NSDictionary* d = str[0];
-//        NSString* name = [d objectForKey:@"name"];
-//        NSDictionary* loc = [d objectForKey:@"location"];
-//        NSString* address = [loc objectForKey:@"address"];
     }
 }
 
