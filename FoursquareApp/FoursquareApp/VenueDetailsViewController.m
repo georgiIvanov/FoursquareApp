@@ -32,6 +32,7 @@
         mapController.locationCoordinates = self.userLocation;
         
         mapController.venues = [self passVenueToMapController];
+        mapController.viewingOneVenue = YES;
     }
 
 }

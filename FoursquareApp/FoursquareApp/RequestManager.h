@@ -11,6 +11,8 @@
 @protocol HttpRequestDelegate <NSObject>
 
 -(void)handleSuccess:(NSDictionary*)responseData;
+
+@optional
 -(void)handleError:(NSError*)error;
 
 @end

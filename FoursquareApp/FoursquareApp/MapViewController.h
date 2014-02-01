@@ -14,5 +14,6 @@
 @property (nonatomic) CLLocationCoordinate2D locationCoordinates;
 @property (nonatomic) NSDictionary* venues;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic) BOOL viewingOneVenue;
 
 @end

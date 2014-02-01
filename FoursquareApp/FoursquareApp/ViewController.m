@@ -198,6 +198,47 @@
     [self performSegueWithIdentifier:@"venueDetailsSegue" sender:self];
 }
 
+//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+//{
+//    return 10.0f;
+//}
+//
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 10.0f;
+//}
+
+
+//-(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 40.0;
+//}
+
+
+//-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
+//{
+//    return 30.0;
+//}
+
+-(UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
+{
+    CGRect r = CGRectMake(0, 0, tableView.bounds.size.width, 30);
+    UIView* view = [[UIView alloc] initWithFrame:r];
+    view.backgroundColor = SECTION_COLOR;
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 3, tableView.bounds.size.width - 10, 18)] ;
+    label.text = [_categories objectAtIndex:section];
+    label.textColor = [UIColor whiteColor];
+    label.backgroundColor = [UIColor clearColor];
+    [view addSubview:label];
+    return view;
+}
+
+//-(UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)section
+//{
+//    return [[UIView alloc] initWithFrame:CGRectZero];
+//}
+
 #pragma mark NetworkCalls
 
 -(void)getTrendingVenues:(float)latitude longitude:(float)longitude
