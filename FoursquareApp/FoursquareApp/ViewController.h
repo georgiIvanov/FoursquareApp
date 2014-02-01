@@ -13,6 +13,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *venueTable;
 
+
+
+
 -(void)handleSuccess:(NSDictionary*)responseData;
 -(void)handleError:(NSError*)error;
 

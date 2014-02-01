@@ -24,10 +24,10 @@
 
 -(void)serializeVenuesAsync:(id<VenuesSerializerDelegate>)delegate
 {
-    if([_venuesToSerialize count] == 0)
-    {
-        [NSException raise:@"No venues to serialize" format:@"Count cannot be %d", [_venuesToSerialize count]];
-    }
+//    if([_venuesToSerialize count] == 0)
+//    {
+//        [NSException raise:@"No venues to serialize" format:@"Count cannot be %d", [_venuesToSerialize count]];
+//    }
     
     @synchronized(self)
     {

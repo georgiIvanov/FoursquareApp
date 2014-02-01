@@ -32,6 +32,9 @@
     self.mapView.delegate  = self;
     [self centerMapOnUserLocation];
     [self addVenuesToMap];
+    
+   
+    
 }
 
 -(void)centerMapOnUserLocation
@@ -50,6 +53,11 @@
         [self.mapView addAnnotations:arr];
         
     }
+}
+
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    _mapView.centerCoordinate = userLocation.location.coordinate;
 }
 
 - (void)didReceiveMemoryWarning

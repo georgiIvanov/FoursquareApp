@@ -12,6 +12,7 @@
 #import "MapViewController.h"
 #import "VenuesSerializer.h"
 #import "Venue.h"
+#import "VenueDetailsViewController.h"
 #import <CoreLocation/CoreLocation.h>
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, HttpRequestDelegate, VenuesSerializerDelegate, CLLocationManagerDelegate>
@@ -27,6 +28,7 @@
     
     NSArray* _categories;
     NSDictionary* _venues;
+    Venue* _selectedVenue;
 }
 
 - (void)viewDidLoad
@@ -52,28 +54,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)initLocationManager
-{
-    if (![CLLocationManager locationServicesEnabled]){
-        [Utilities displayError:@"location services are disabled"];
-          return;
-      }
-    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied){
-        [Utilities displayError:@"location services are blocked by the user"];
-        return;
-    }
-    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined){
-        NSLog(@"about to show a dialog requesting permission");
-    }
-        
-    _locationManager = [[CLLocationManager alloc] init];
-    _locationManager.delegate = self;
-    _locationManager.distanceFilter = 30.0f;//kCLDistanceFilterNone; //
-    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [_locationManager startUpdatingLocation];
-
-    
-}
 
 -(void)checkIfLogged
 {
@@ -85,6 +65,59 @@
     }
     
     [self performSegueWithIdentifier:@"loginSegue"sender:self];
+}
+
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"mapViewSegue"])
+    {
+        MapViewController* mapController = (MapViewController*)segue.destinationViewController;
+        mapController.locationCoordinates = _locationCoordinates;
+        mapController.venues = _venues;
+    }
+    else if([segue.identifier isEqualToString:@"venueDetailsSegue"])
+    {
+        VenueDetailsViewController* detailsController = (VenueDetailsViewController*)segue.destinationViewController;
+        detailsController.venue = _selectedVenue;
+        detailsController.userLocation = _locationCoordinates;
+        
+    }
+}
+
+-(void)recieveSerializedVenues:(NSDictionary *)venues Categories:(NSArray *)categories
+{
+    _venues = venues;
+    _categories = categories;
+    
+    [self.venueTable reloadData];
+    
+}
+
+#pragma mark LocationRelated
+
+-(void)initLocationManager
+{
+    if (![CLLocationManager locationServicesEnabled]){
+        [Utilities displayError:@"location services are disabled"];
+        return;
+    }
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied){
+        [Utilities displayError:@"location services are blocked by the user"];
+        return;
+    }
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined){
+        NSLog(@"about to show a dialog requesting permission");
+    }
+    
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.delegate = self;
+    _locationManager.distanceFilter = 30.0f;//kCLDistanceFilterNone; //
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [_locationManager startUpdatingLocation];
+    
+    
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -99,30 +132,7 @@
     [self getTrendingVenues: _locationCoordinates.latitude longitude:_locationCoordinates.longitude];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"mapViewSegue"])
-    {
-        MapViewController* mapController = (MapViewController*)segue.destinationViewController;
-        mapController.locationCoordinates = _locationCoordinates;
-        mapController.venues = _venues;
-    }
-}
-
--(void)getTrendingVenues:(float)latitude longitude:(float)longitude
-{
-    NSString* url = [[NSString alloc] initWithFormat: @TRENDING_URL, latitude,longitude, _oauth_token];
-    [RequestManager createRequest:url httpMethod:@"GET" delegate:self];
-}
-
--(void)recieveSerializedVenues:(NSDictionary *)venues Categories:(NSArray *)categories
-{
-    _venues = venues;
-    _categories = categories;
-    
-    [self.venueTable reloadData];
-    
-}
+#pragma mark TableDelegateMethods
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -171,6 +181,29 @@
     venueAddress.text = venueEntry.Address;
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([_categories count] == 0 || [_venues count] == 0)
+    {
+        return;
+    }
+    
+    NSString* categoryKey = [_categories objectAtIndex:indexPath.section];
+    
+    NSArray* venues = [_venues objectForKey:categoryKey];
+    
+    _selectedVenue = venues[indexPath.item];
+    [self performSegueWithIdentifier:@"venueDetailsSegue" sender:self];
+}
+
+#pragma mark NetworkCalls
+
+-(void)getTrendingVenues:(float)latitude longitude:(float)longitude
+{
+    NSString* url = [[NSString alloc] initWithFormat: @TRENDING_URL, latitude,longitude, _oauth_token];
+    [RequestManager createRequest:url httpMethod:@"GET" delegate:self];
 }
 
 -(void)handleSuccess:(NSDictionary *)responseData
