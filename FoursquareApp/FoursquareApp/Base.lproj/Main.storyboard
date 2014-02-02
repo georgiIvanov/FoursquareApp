@@ -10,6 +10,9 @@
                 <navigationController definesPresentationContext="YES" id="LZI-pe-E83" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lob-eY-1qa">
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="BuQ-ij-raX">
                         <rect key="frame" x="0.0" y="416" width="320" height="44"/>
@@ -83,8 +86,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uis-8c-gNe">
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.396078431372549" green="0.83529411764705885" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="separatorColor" red="0.073569866169999998" green="1" blue="0.00053359762919999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="z1Z-7A-xLs">
@@ -99,6 +100,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dist:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g94-BO-6bJ">
                                                     <rect key="frame" x="200" y="5" width="100" height="21"/>
@@ -113,9 +115,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.81616959219107477" green="1" blue="0.63556072704794353" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.7247688284062872" green="1" blue="0.56237941903874122" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -244,6 +244,13 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQI-Kz-BYI">
+                                <rect key="frame" x="137" y="129" width="171" height="234"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -253,6 +260,7 @@
                     <connections>
                         <outlet property="address" destination="zgU-RQ-GHe" id="FGQ-fO-x7O"/>
                         <outlet property="category" destination="ic7-p3-QEo" id="aHw-Bd-C1D"/>
+                        <outlet property="checkInTextView" destination="FQI-Kz-BYI" id="B79-Py-cig"/>
                         <outlet property="distance" destination="hQW-Lg-mS8" id="3Cn-bG-eKT"/>
                         <outlet property="url" destination="72c-DQ-Lxn" id="dJU-10-Mya"/>
                         <outlet property="userCount" destination="WB7-Rk-Zcx" id="qfU-ey-S4K"/>

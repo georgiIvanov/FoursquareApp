@@ -14,6 +14,9 @@
 
 #define DIRECTION_URL "https://maps.googleapis.com/maps/api/directions/json?sensor=true&destination=%3.6f,%3.6f&origin=%3.6f,%3.6f&mode=%@"
 
+#define CHECKIN_URL "https://api.foursquare.com/v2/checkins/add?oauth_token=%@&venueId=%@&v=20140130"
+
+#define CHECKING_DISTANCE 350
 
 #define SECTION_COLOR [UIColor colorWithRed:131/255.0f green:202/255.0f blue:100/255.0f alpha:1.0f];
 

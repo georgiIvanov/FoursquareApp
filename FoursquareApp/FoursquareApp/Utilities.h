@@ -10,5 +10,5 @@
 
 @interface Utilities : NSObject
 +(void)displayError:(NSString*)errorMsg;
-
++(void)writeCheckIn:(id<UIAlertViewDelegate>) delegate;
 @end
