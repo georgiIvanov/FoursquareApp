@@ -9,13 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "RequestManager.h"
 
-@interface ViewController : UIViewController
+@interface VenuesViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *venueTable;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-
-
-
 
 -(void)handleSuccess:(NSDictionary*)responseData;
 @end

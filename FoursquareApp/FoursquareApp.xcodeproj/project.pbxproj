@@ -18,19 +18,21 @@
 		FFAB75B4189E60180036D2E4 /* nav2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FFAB75B3189E60180036D2E4 /* nav2.jpeg */; };
 		FFB4D826189F9D3600214340 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB4D824189F9D3600214340 /* car.png */; };
 		FFB4D827189F9D3600214340 /* walk.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB4D825189F9D3600214340 /* walk.png */; };
+		FFB4D82D18A019ED00214340 /* TrendingResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = FFB4D82C18A019ED00214340 /* TrendingResponse.json */; };
+		FFB4D83018A01A2900214340 /* DataSupplier.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4D82F18A01A2900214340 /* DataSupplier.m */; };
+		FFB4D83218A03DBD00214340 /* VenuesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB4D83118A03DBD00214340 /* VenuesTests.m */; };
 		FFB974D7189A823900419430 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB974D6189A823900419430 /* Foundation.framework */; };
 		FFB974D9189A823900419430 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB974D8189A823900419430 /* CoreGraphics.framework */; };
 		FFB974DB189A823900419430 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB974DA189A823900419430 /* UIKit.framework */; };
 		FFB974E1189A823900419430 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFB974DF189A823900419430 /* InfoPlist.strings */; };
 		FFB974E7189A823900419430 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB974E6189A823900419430 /* AppDelegate.m */; };
 		FFB974EA189A823900419430 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB974E8189A823900419430 /* Main.storyboard */; };
-		FFB974ED189A823900419430 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB974EC189A823900419430 /* ViewController.m */; };
+		FFB974ED189A823900419430 /* VenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB974EC189A823900419430 /* VenuesViewController.m */; };
 		FFB974EF189A823900419430 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFB974EE189A823900419430 /* Images.xcassets */; };
 		FFB974F6189A823900419430 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB974F5189A823900419430 /* XCTest.framework */; };
 		FFB974F7189A823900419430 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB974D6189A823900419430 /* Foundation.framework */; };
 		FFB974F8189A823900419430 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB974DA189A823900419430 /* UIKit.framework */; };
 		FFB97500189A823A00419430 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFB974FE189A823A00419430 /* InfoPlist.strings */; };
-		FFB97502189A823A00419430 /* FoursquareAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB97501189A823A00419430 /* FoursquareAppTests.m */; };
 		FFB9750E189A902D00419430 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB9750D189A902D00419430 /* RequestManager.m */; };
 		FFB97514189ABD8E00419430 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB97513189ABD8E00419430 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
@@ -61,6 +63,10 @@
 		FFAB75B3189E60180036D2E4 /* nav2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nav2.jpeg; sourceTree = "<group>"; };
 		FFB4D824189F9D3600214340 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		FFB4D825189F9D3600214340 /* walk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk.png; sourceTree = "<group>"; };
+		FFB4D82C18A019ED00214340 /* TrendingResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TrendingResponse.json; sourceTree = "<group>"; };
+		FFB4D82E18A01A2900214340 /* DataSupplier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSupplier.h; sourceTree = "<group>"; };
+		FFB4D82F18A01A2900214340 /* DataSupplier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSupplier.m; sourceTree = "<group>"; };
+		FFB4D83118A03DBD00214340 /* VenuesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenuesTests.m; sourceTree = "<group>"; };
 		FFB974D3189A823900419430 /* FoursquareApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoursquareApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB974D6189A823900419430 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FFB974D8189A823900419430 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,14 +78,13 @@
 		FFB974E5189A823900419430 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FFB974E6189A823900419430 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FFB974E9189A823900419430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FFB974EB189A823900419430 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FFB974EC189A823900419430 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FFB974EB189A823900419430 /* VenuesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VenuesViewController.h; sourceTree = "<group>"; };
+		FFB974EC189A823900419430 /* VenuesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VenuesViewController.m; sourceTree = "<group>"; };
 		FFB974EE189A823900419430 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FFB974F4189A823900419430 /* FoursquareAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoursquareAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB974F5189A823900419430 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FFB974FD189A823A00419430 /* FoursquareAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FoursquareAppTests-Info.plist"; sourceTree = "<group>"; };
 		FFB974FF189A823A00419430 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FFB97501189A823A00419430 /* FoursquareAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoursquareAppTests.m; sourceTree = "<group>"; };
 		FFB9750C189A902D00419430 /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
 		FFB9750D189A902D00419430 /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestManager.m; sourceTree = "<group>"; };
 		FFB97512189ABD8E00419430 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -115,8 +120,8 @@
 		FFAB755B189BA1970036D2E4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FFB974EB189A823900419430 /* ViewController.h */,
-				FFB974EC189A823900419430 /* ViewController.m */,
+				FFB974EB189A823900419430 /* VenuesViewController.h */,
+				FFB974EC189A823900419430 /* VenuesViewController.m */,
 				FFB97512189ABD8E00419430 /* LoginViewController.h */,
 				FFB97513189ABD8E00419430 /* LoginViewController.m */,
 				FFAB7562189BA9DD0036D2E4 /* MapViewController.h */,
@@ -146,6 +151,14 @@
 			);
 			name = images;
 			path = FoursquareApp/images;
+			sourceTree = "<group>";
+		};
+		FFB4D82B18A019ED00214340 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FFB4D82C18A019ED00214340 /* TrendingResponse.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		FFB974CA189A823900419430 = {
@@ -214,8 +227,11 @@
 		FFB974FB189A823A00419430 /* FoursquareAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				FFB97501189A823A00419430 /* FoursquareAppTests.m */,
+				FFB4D83118A03DBD00214340 /* VenuesTests.m */,
+				FFB4D82B18A019ED00214340 /* Data */,
 				FFB974FC189A823A00419430 /* Supporting Files */,
+				FFB4D82E18A01A2900214340 /* DataSupplier.h */,
+				FFB4D82F18A01A2900214340 /* DataSupplier.m */,
 			);
 			path = FoursquareAppTests;
 			sourceTree = "<group>";
@@ -328,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB4D82D18A019ED00214340 /* TrendingResponse.json in Resources */,
 				FFB97500189A823A00419430 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,7 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFAB7561189BA9420036D2E4 /* main.m in Sources */,
-				FFB974ED189A823900419430 /* ViewController.m in Sources */,
+				FFB974ED189A823900419430 /* VenuesViewController.m in Sources */,
 				FFB974E7189A823900419430 /* AppDelegate.m in Sources */,
 				FFAB75AF189D02600036D2E4 /* VenueDetailsViewController.m in Sources */,
 				FFAB756B189BB48F0036D2E4 /* Venue.m in Sources */,
@@ -356,7 +373,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFB97502189A823A00419430 /* FoursquareAppTests.m in Sources */,
+				FFB4D83018A01A2900214340 /* DataSupplier.m in Sources */,
+				FFB4D83218A03DBD00214340 /* VenuesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

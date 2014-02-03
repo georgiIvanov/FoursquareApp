@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="396" y="-530"/>
         </scene>
-        <!--View Controller - Trending Venues-->
+        <!--Venues View Controller - Trending Venues-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="VenuesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="99a-w0-0uh"/>
                         <viewControllerLayoutGuide type="bottom" id="9wh-tE-zQJ"/>

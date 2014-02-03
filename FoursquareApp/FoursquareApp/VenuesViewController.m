@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Georgi Ivanov. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "VenuesViewController.h"
 #import "Constants.h"
 #import "Utilities.h"
 #import "MapViewController.h"
@@ -15,11 +15,11 @@
 #import "VenueDetailsViewController.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate, HttpRequestDelegate, VenuesSerializerDelegate, CLLocationManagerDelegate>
+@interface VenuesViewController () <UITableViewDataSource, UITableViewDelegate, HttpRequestDelegate, VenuesSerializerDelegate, CLLocationManagerDelegate>
 
 @end
 
-@implementation ViewController
+@implementation VenuesViewController
 {
     NSString* _oauth_token;
     CLLocationManager* _locationManager;
@@ -128,7 +128,7 @@
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    
+    [Utilities displayError:@"Cannot find your position. Make sure you allowed to get your location and you are connected to the internet."];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -215,7 +215,7 @@
     label.textColor = [UIColor whiteColor];
     label.backgroundColor = [UIColor clearColor];
     [view addSubview:label];
-    return view;
+    return view;	
 }
 
 #pragma mark NetworkCalls

@@ -37,6 +37,11 @@
                BlueprintName = "FoursquareAppTests"
                ReferencedContainer = "container:FoursquareApp.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "FoursquareAppTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
