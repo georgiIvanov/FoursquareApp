@@ -58,11 +58,13 @@
                     </view>
                     <connections>
                         <outlet property="webView" destination="kcL-Xt-9d3" id="TZK-ce-G1A"/>
+                        <segue destination="Wmn-Jc-yXe" kind="unwind" identifier="returnToMainController" unwindAction="returnToMainController:" id="DDR-XN-aMm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eWI-2O-uI7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Wmn-Jc-yXe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="315" y="-768"/>
+            <point key="canvasLocation" x="421" y="-196"/>
         </scene>
         <!--View Controller - Trending Venues-->
         <scene sceneID="ufC-wZ-h7g">
@@ -251,6 +253,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="WV5-1i-Yn4">
+                                <rect key="frame" x="211" y="230" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -258,6 +265,7 @@
                         <barButtonItem key="backBarButtonItem" title="Details" id="XhD-yN-gRd"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="WV5-1i-Yn4" id="oe3-IY-sLe"/>
                         <outlet property="address" destination="zgU-RQ-GHe" id="FGQ-fO-x7O"/>
                         <outlet property="category" destination="ic7-p3-QEo" id="aHw-Bd-C1D"/>
                         <outlet property="checkInTextView" destination="FQI-Kz-BYI" id="B79-Py-cig"/>

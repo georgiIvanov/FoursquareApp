@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *url;
 @property (weak, nonatomic) IBOutlet UILabel *address;
 @property (weak, nonatomic) IBOutlet UITextView *checkInTextView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 
 @end

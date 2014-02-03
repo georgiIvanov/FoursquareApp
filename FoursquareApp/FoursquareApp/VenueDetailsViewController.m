@@ -48,6 +48,7 @@
     
     [self initNavBarButtons];
     [self initializeLabels];
+    //self.activityIndicator.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -126,6 +127,8 @@
                                httpMethod:@"POST"
                                  sentData:sentData
                                  delegate:self];
+            //[self.activityIndicator hi]
+            [self.activityIndicator startAnimating];
         }
     }
 }
@@ -158,7 +161,7 @@
         id reasons = [venue objectForKey:@"reasons"];
         
         NSArray* scores = [score objectForKey:@"scores"];
-        int totalScore = [[score objectForKey:@"total"] intValue];
+//        int totalScore = [[score objectForKey:@"total"] intValue];
         NSArray* reasonItems = [reasons objectForKey:@"items"];
 
         NSMutableString* result = [[NSMutableString alloc] init];
@@ -175,10 +178,11 @@
         }
         
         [result appendString:@"\r\r"];
-        if(totalScore != 0)
-        {
-            [result appendFormat:@"Total score: %d", totalScore];
-        }
+//        if(totalScore != 0)
+//        {
+//            [result appendFormat:@"Total score: %d", totalScore];
+//        }
+        [self.activityIndicator stopAnimating];
         self.checkInTextView.text = result;
     }
 }

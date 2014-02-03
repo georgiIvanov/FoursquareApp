@@ -86,13 +86,17 @@
     }
 }
 
+-(IBAction)returnToMainController:(UIStoryboardSegue*)segue
+{
+    
+}
+
 -(void)recieveSerializedVenues:(NSDictionary *)venues Categories:(NSArray *)categories
 {
     _venues = venues;
     _categories = categories;
     
     [self.venueTable reloadData];
-    
 }
 
 #pragma mark LocationRelated

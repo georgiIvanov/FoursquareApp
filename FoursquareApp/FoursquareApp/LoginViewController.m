@@ -31,6 +31,7 @@
     [self loadLoginPage];
 }
 
+
 -(void)loadLoginPage
 {
     NSURL* url = [NSURL URLWithString:@AUTH_URL];
@@ -64,9 +65,7 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:accessToken forKey:@"access_token"];
         [defaults synchronize];
-        [self dismissViewControllerAnimated:YES completion:^(void){
-            
-        }];
+        [self performSegueWithIdentifier:@"returnToMainController" sender:self];
     }
 }
 
