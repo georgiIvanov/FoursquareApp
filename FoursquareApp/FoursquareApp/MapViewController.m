@@ -20,6 +20,9 @@
 {
     NSMutableArray* _path;
     MKPolyline* _navigationPolyline;
+    UIBarButtonItem *_carButton;
+    UIBarButtonItem *_walkButton;
+    NSString* _travelMode;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -40,9 +43,49 @@
     [self addVenuesToMap];
     if(self.viewingOneVenue)
     {
+        _travelMode = @DRIVE_MODE;
         [self getRouteToVenue];
+        [self initNavBarButtons];
     }
 }
+
+
+-(void)initNavBarButtons
+{
+    UIImage* car = [UIImage imageNamed:@"car.png"];
+    UIImage* walk = [UIImage imageNamed:@"walk.png"];
+    
+    _carButton = [[UIBarButtonItem alloc] initWithImage:car landscapeImagePhone:car style:UIBarButtonItemStyleBordered target:self action:@selector(travelWithCar)];
+    _carButton.tintColor = SECTION_COLOR;
+
+    _walkButton = [[UIBarButtonItem alloc] initWithImage:walk landscapeImagePhone:walk style:UIBarButtonItemStyleBordered target:self action:@selector(travelOnFoot)];
+    _walkButton.tintColor = DEACTIVATED_BUTTON;
+    
+    //[map backgroundImageForState: barMetrics:UIBarMetricsDefault];
+
+    
+    NSArray *actionButtonItems = @[_carButton, _walkButton];
+    self.navigationItem.rightBarButtonItems = actionButtonItems;
+}
+
+-(void)travelWithCar
+{
+    _carButton.tintColor = SECTION_COLOR;
+    _walkButton.tintColor = DEACTIVATED_BUTTON;
+    _travelMode = @DRIVE_MODE;
+    [self removeMapPolyline];
+    [self getRouteToVenue];
+}
+
+-(void)travelOnFoot
+{
+    _carButton.tintColor = DEACTIVATED_BUTTON;
+    _walkButton.tintColor = SECTION_COLOR;
+    _travelMode = @WALK_MODE;
+    [self removeMapPolyline];
+    [self getRouteToVenue];
+}
+
 
 -(void)centerMapOnUserLocation
 {
@@ -69,11 +112,16 @@
     if(self.viewingOneVenue)
     {
         [self getRouteToVenue];
-        if(_navigationPolyline != nil)
-        {
-            [self.mapView removeOverlays:self.mapView.overlays];
-            _navigationPolyline = nil;
-        }
+        [self removeMapPolyline];
+    }
+}
+
+-(void)removeMapPolyline
+{
+    if(_navigationPolyline != nil)
+    {
+        [self.mapView removeOverlays:self.mapView.overlays];
+        _navigationPolyline = nil;
     }
 }
 
@@ -101,7 +149,7 @@
         venue = [arr objectAtIndex:0];
     }
     
-    NSString* reqUrl = [[NSString alloc] initWithFormat:@DIRECTION_URL, self.locationCoordinates.latitude, self.locationCoordinates.longitude, venue.Latitude, venue.Longitude, @"driving"];
+    NSString* reqUrl = [[NSString alloc] initWithFormat:@DIRECTION_URL, self.locationCoordinates.latitude, self.locationCoordinates.longitude, venue.Latitude, venue.Longitude, _travelMode];
     
     [RequestManager createRequest:reqUrl httpMethod:@"GET" delegate:self];
 }

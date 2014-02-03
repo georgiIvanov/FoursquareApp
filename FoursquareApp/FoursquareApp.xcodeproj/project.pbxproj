@@ -16,6 +16,8 @@
 		FFAB75AF189D02600036D2E4 /* VenueDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAB75AE189D02600036D2E4 /* VenueDetailsViewController.m */; };
 		FFAB75B2189E5D610036D2E4 /* navBarGradient.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FFAB75B1189E5D610036D2E4 /* navBarGradient.jpeg */; };
 		FFAB75B4189E60180036D2E4 /* nav2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FFAB75B3189E60180036D2E4 /* nav2.jpeg */; };
+		FFB4D826189F9D3600214340 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB4D824189F9D3600214340 /* car.png */; };
+		FFB4D827189F9D3600214340 /* walk.png in Resources */ = {isa = PBXBuildFile; fileRef = FFB4D825189F9D3600214340 /* walk.png */; };
 		FFB974D7189A823900419430 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB974D6189A823900419430 /* Foundation.framework */; };
 		FFB974D9189A823900419430 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB974D8189A823900419430 /* CoreGraphics.framework */; };
 		FFB974DB189A823900419430 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB974DA189A823900419430 /* UIKit.framework */; };
@@ -57,6 +59,8 @@
 		FFAB75AE189D02600036D2E4 /* VenueDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueDetailsViewController.m; sourceTree = "<group>"; };
 		FFAB75B1189E5D610036D2E4 /* navBarGradient.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = navBarGradient.jpeg; sourceTree = "<group>"; };
 		FFAB75B3189E60180036D2E4 /* nav2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nav2.jpeg; sourceTree = "<group>"; };
+		FFB4D824189F9D3600214340 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
+		FFB4D825189F9D3600214340 /* walk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk.png; sourceTree = "<group>"; };
 		FFB974D3189A823900419430 /* FoursquareApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoursquareApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB974D6189A823900419430 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FFB974D8189A823900419430 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -135,6 +139,8 @@
 		FFAB75B0189E5D610036D2E4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FFB4D824189F9D3600214340 /* car.png */,
+				FFB4D825189F9D3600214340 /* walk.png */,
 				FFAB75B3189E60180036D2E4 /* nav2.jpeg */,
 				FFAB75B1189E5D610036D2E4 /* navBarGradient.jpeg */,
 			);
@@ -313,6 +319,8 @@
 				FFB974EA189A823900419430 /* Main.storyboard in Resources */,
 				FFAB75B2189E5D610036D2E4 /* navBarGradient.jpeg in Resources */,
 				FFAB75B4189E60180036D2E4 /* nav2.jpeg in Resources */,
+				FFB4D827189F9D3600214340 /* walk.png in Resources */,
+				FFB4D826189F9D3600214340 /* car.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

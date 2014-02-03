@@ -16,9 +16,14 @@
 
 #define CHECKIN_URL "https://api.foursquare.com/v2/checkins/add?oauth_token=%@&venueId=%@&v=20140130"
 
-#define CHECKING_DISTANCE 350
+#define DRIVE_MODE "driving"
+#define WALK_MODE "walking"
+
+#define CHECKING_DISTANCE 2000
 
 #define SECTION_COLOR [UIColor colorWithRed:131/255.0f green:202/255.0f blue:100/255.0f alpha:1.0f];
+
+#define DEACTIVATED_BUTTON [UIColor colorWithRed:154/255.0f green:154/255.0f blue:154/255.0f alpha:0.5f];
 
 // lat 42.6932869739926
 // lon 23.3286389708519

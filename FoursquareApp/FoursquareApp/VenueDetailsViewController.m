@@ -175,8 +175,10 @@
         }
         
         [result appendString:@"\r\r"];
-        [result appendFormat:@"Total score: %d", totalScore];
-        
+        if(totalScore != 0)
+        {
+            [result appendFormat:@"Total score: %d", totalScore];
+        }
         self.checkInTextView.text = result;
     }
 }
