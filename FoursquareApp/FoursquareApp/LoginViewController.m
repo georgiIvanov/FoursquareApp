@@ -34,6 +34,7 @@
 
 -(void)loadLoginPage
 {
+    [self.activityIndicator startAnimating];
     NSURL* url = [NSURL URLWithString:@AUTH_URL];
     
     NSURLRequest* urlReq = [NSURLRequest requestWithURL:url];
@@ -58,6 +59,7 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    [self.activityIndicator stopAnimating];
     NSString *URLString = [[self.webView.request URL] absoluteString];
     // NSLog(@"--> %@", URLString);
     if ([URLString rangeOfString:@"access_token="].location != NSNotFound) {

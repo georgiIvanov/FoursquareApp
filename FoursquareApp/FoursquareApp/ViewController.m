@@ -44,8 +44,10 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [self.activityIndicator startAnimating];
     [self checkIfLogged];
     [self initLocationManager];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,7 +97,7 @@
 {
     _venues = venues;
     _categories = categories;
-    
+    [self.activityIndicator stopAnimating];
     [self.venueTable reloadData];
 }
 
@@ -168,7 +170,7 @@
     
     // Dequeue or create a cell of the appropriate type.
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     // Configure the cell.
     NSString* key = [_categories objectAtIndex:indexPath.section];
@@ -202,28 +204,6 @@
     [self performSegueWithIdentifier:@"venueDetailsSegue" sender:self];
 }
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-//{
-//    return 10.0f;
-//}
-//
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    return 10.0f;
-//}
-
-
-//-(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    return 40.0;
-//}
-
-
-//-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
-//{
-//    return 30.0;
-//}
-
 -(UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
 {
     CGRect r = CGRectMake(0, 0, tableView.bounds.size.width, 30);
@@ -237,11 +217,6 @@
     [view addSubview:label];
     return view;
 }
-
-//-(UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)section
-//{
-//    return [[UIView alloc] initWithFrame:CGRectZero];
-//}
 
 #pragma mark NetworkCalls
 
@@ -264,8 +239,4 @@
     }
 }
 
--(void)handleError:(NSError *)error
-{
-    
-}
 @end

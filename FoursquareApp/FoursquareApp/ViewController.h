@@ -12,13 +12,10 @@
 @interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *venueTable;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 
 
 
 -(void)handleSuccess:(NSDictionary*)responseData;
--(void)handleError:(NSError*)error;
-
-
-
 @end
