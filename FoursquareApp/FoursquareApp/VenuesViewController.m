@@ -29,17 +29,20 @@
     NSArray* _categories;
     NSDictionary* _venues;
     Venue* _selectedVenue;
+    
+    // prevents checking location several times
+    // on startup
+    BOOL _justCheckedLocation;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-//    [self checkIfLogged];
-//    [self initLocationManager];
     _venuesSerializer = [VenuesSerializer alloc];
     self.venueTable.delegate = self;
     self.venueTable.dataSource = self;
+    
+    _justCheckedLocation = NO;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -133,9 +136,14 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
+    if(_justCheckedLocation)
+    {
+        return;
+    }
     CLLocation* currentLocation = locations[0];
     _locationCoordinates = [currentLocation coordinate];
     [self getTrendingVenues: _locationCoordinates.latitude longitude:_locationCoordinates.longitude];
+    _justCheckedLocation = YES;
 }
 
 #pragma mark TableDelegateMethods
@@ -237,6 +245,18 @@
         [_venuesSerializer serializeVenuesAsync:self];
         
     }
+    
+    _justCheckedLocation = NO;
+}
+
+-(void)handleError:(NSError *)error
+{
+    if(_oauth_token && _justCheckedLocation)
+    {
+        [self performSegueWithIdentifier:@"loginSegue"sender:self];
+    }
+    
+    _justCheckedLocation = NO;
 }
 
 @end

@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:FoursquareApp/FoursquareAppTests/VenuesTests.m">
-   </FileRef>
-   <FileRef
       location = "group:FoursquareApp/FoursquareApp.xcodeproj">
    </FileRef>
 </Workspace>
