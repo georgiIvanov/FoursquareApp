@@ -131,7 +131,10 @@
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    [Utilities displayError:@"Cannot find your position. Make sure you allowed to get your location and you are connected to the internet."];
+    if(_oauth_token != nil)
+    {
+        [Utilities displayError:@"Cannot find your position. Make sure you allowed to get your location and you are connected to the internet."];
+    }
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
