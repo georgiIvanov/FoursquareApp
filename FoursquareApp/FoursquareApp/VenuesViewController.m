@@ -16,7 +16,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface VenuesViewController () <UITableViewDataSource, UITableViewDelegate, HttpRequestDelegate, VenuesSerializerDelegate, CLLocationManagerDelegate>
-@property (nonatomic, strong) UIImageView* backgroundImageView;
+
 @end
 
 @implementation VenuesViewController
@@ -33,30 +33,16 @@
     // prevents checking location several times
     // on startup
     BOOL _justCheckedLocation;
-    
-   
 }
 
 - (void)viewDidLoad
 {
-   
-
     [super viewDidLoad];
     _venuesSerializer = [VenuesSerializer alloc];
     self.venueTable.delegate = self;
     self.venueTable.dataSource = self;
-    self.view.backgroundColor = [UIColor clearColor];
     
     _justCheckedLocation = NO;
-
-    UIImage *background = [UIImage imageNamed:@"bg.jpg"];
-    self.backgroundImageView = [[UIImageView alloc] initWithImage:background];
-    self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
-    
-    //    [self.view addSubview:self.backgroundImageView];
-    [self.view sendSubviewToBack:self.backgroundImageView];
-    self.venueTable.backgroundColor = [UIColor clearColor];
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -71,11 +57,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
 }
 
 
