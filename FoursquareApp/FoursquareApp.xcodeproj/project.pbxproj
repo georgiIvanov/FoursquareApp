@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DDEBBF7AF39841F9B92E930C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD84F0E000043C4844E6A88 /* libPods.a */; };
 		FF34A8BB18A0FBE20078873F /* VenuesSerializerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF34A8B918A0FBE20078873F /* VenuesSerializerTests.m */; };
 		FFAB755E189BA1CD0036D2E4 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAB755D189BA1CD0036D2E4 /* Utilities.m */; };
 		FFAB7560189BA7AF0036D2E4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFAB755F189BA7AF0036D2E4 /* MapKit.framework */; };
@@ -35,6 +36,9 @@
 		FFB97500189A823A00419430 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFB974FE189A823A00419430 /* InfoPlist.strings */; };
 		FFB9750E189A902D00419430 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB9750D189A902D00419430 /* RequestManager.m */; };
 		FFB97514189ABD8E00419430 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB97513189ABD8E00419430 /* LoginViewController.m */; };
+		FFF9CA0118AE21DB00977F44 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FFF9C9FF18AE21DB00977F44 /* bg.jpg */; };
+		FFF9CA0218AE21DC00977F44 /* bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FFF9CA0018AE21DB00977F44 /* bg@2x.jpg */; };
+		FFF9CA0818AE274000977F44 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF9CA0718AE274000977F44 /* NavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1BD84F0E000043C4844E6A88 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E10C634FE3704726B64E8591 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		FF34A8B918A0FBE20078873F /* VenuesSerializerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenuesSerializerTests.m; sourceTree = "<group>"; };
 		FF34A8BD18A0FCE60078873F /* FileNames.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileNames.h; sourceTree = "<group>"; };
 		FFAB755C189BA1CD0036D2E4 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -91,6 +97,10 @@
 		FFB97512189ABD8E00419430 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FFB97513189ABD8E00419430 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FFB97515189AD2C400419430 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		FFF9C9FF18AE21DB00977F44 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		FFF9CA0018AE21DB00977F44 /* bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg@2x.jpg"; sourceTree = "<group>"; };
+		FFF9CA0618AE274000977F44 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		FFF9CA0718AE274000977F44 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +112,7 @@
 				FFB974D9189A823900419430 /* CoreGraphics.framework in Frameworks */,
 				FFB974DB189A823900419430 /* UIKit.framework in Frameworks */,
 				FFB974D7189A823900419430 /* Foundation.framework in Frameworks */,
+				DDEBBF7AF39841F9B92E930C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +140,8 @@
 				FFAB7563189BA9DD0036D2E4 /* MapViewController.m */,
 				FFAB75AD189D02600036D2E4 /* VenueDetailsViewController.h */,
 				FFAB75AE189D02600036D2E4 /* VenueDetailsViewController.m */,
+				FFF9CA0618AE274000977F44 /* NavigationController.h */,
+				FFF9CA0718AE274000977F44 /* NavigationController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -145,6 +158,8 @@
 		FFAB75B0189E5D610036D2E4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FFF9C9FF18AE21DB00977F44 /* bg.jpg */,
+				FFF9CA0018AE21DB00977F44 /* bg@2x.jpg */,
 				FFB4D824189F9D3600214340 /* car.png */,
 				FFB4D825189F9D3600214340 /* walk.png */,
 				FFAB75B3189E60180036D2E4 /* nav2.jpeg */,
@@ -170,6 +185,7 @@
 				FFB974FB189A823A00419430 /* FoursquareAppTests */,
 				FFB974D5189A823900419430 /* Frameworks */,
 				FFB974D4189A823900419430 /* Products */,
+				E10C634FE3704726B64E8591 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -190,6 +206,7 @@
 				FFB974D8189A823900419430 /* CoreGraphics.framework */,
 				FFB974DA189A823900419430 /* UIKit.framework */,
 				FFB974F5189A823900419430 /* XCTest.framework */,
+				1BD84F0E000043C4844E6A88 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -263,9 +280,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FFB97505189A823A00419430 /* Build configuration list for PBXNativeTarget "FoursquareApp" */;
 			buildPhases = (
+				EE319156F73B4FB38604353B /* Check Pods Manifest.lock */,
 				FFB974CF189A823900419430 /* Sources */,
 				FFB974D0189A823900419430 /* Frameworks */,
 				FFB974D1189A823900419430 /* Resources */,
+				3D6897E3AB834CB4AED8AA03 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -332,12 +351,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF9CA0218AE21DC00977F44 /* bg@2x.jpg in Resources */,
 				FFB974EF189A823900419430 /* Images.xcassets in Resources */,
 				FFB974E1189A823900419430 /* InfoPlist.strings in Resources */,
 				FFB974EA189A823900419430 /* Main.storyboard in Resources */,
 				FFAB75B2189E5D610036D2E4 /* navBarGradient.jpeg in Resources */,
 				FFAB75B4189E60180036D2E4 /* nav2.jpeg in Resources */,
 				FFB4D827189F9D3600214340 /* walk.png in Resources */,
+				FFF9CA0118AE21DB00977F44 /* bg.jpg in Resources */,
 				FFB4D826189F9D3600214340 /* car.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +374,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3D6897E3AB834CB4AED8AA03 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE319156F73B4FB38604353B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FFB974CF189A823900419430 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -366,6 +420,7 @@
 				FFB9750E189A902D00419430 /* RequestManager.m in Sources */,
 				FFAB755E189BA1CD0036D2E4 /* Utilities.m in Sources */,
 				FFAB7567189BB4620036D2E4 /* VenuesSerializer.m in Sources */,
+				FFF9CA0818AE274000977F44 /* NavigationController.m in Sources */,
 				FFB97514189ABD8E00419430 /* LoginViewController.m in Sources */,
 				FFAB7564189BA9DD0036D2E4 /* MapViewController.m in Sources */,
 			);
@@ -492,6 +547,7 @@
 		};
 		FFB97506189A823A00419430 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E10C634FE3704726B64E8591 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -505,6 +561,7 @@
 		};
 		FFB97507189A823A00419430 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E10C634FE3704726B64E8591 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
